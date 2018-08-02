@@ -3,10 +3,9 @@
 cd /tmp
 git clone https://github.com/nonsequitur/smex.git
 git clone https://github.com/flymake/emacs-flymake.git
-
+mkdir -p ~/.emacs.d/lisp/
 cd ~/.emacs.d/lisp && git clone https://github.com/joaotavora/yasnippet.git
 
-mkdir -p ~/.emacs.d/lisp
 
 cp /tmp/smex/*.el /tmp/emacs-flymake/*.el ~/.emacs.d/lisp
 
@@ -16,6 +15,7 @@ cat <<EOF >> ~/.emacs
 (package-initialize)
 (ac-config-default)
 (global-auto-complete-mode t)
+(setq tab-always-indent ‘complete)
 
 ;add load path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
