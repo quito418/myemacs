@@ -13,9 +13,16 @@ cat <<EOF >> ~/.emacs
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
+(setq package-list '(auto-complete))
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (ac-config-default)
+
 (global-auto-complete-mode t)
-(setq tab-always-indent ‘complete)
+
 
 ;add load path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -57,4 +64,4 @@ cat <<EOF >> ~/.emacs
 
 EOF
 
-emacs -e "(progn (package-initialize)(package-install 'auto-complete))"
+
