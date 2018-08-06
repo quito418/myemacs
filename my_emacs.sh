@@ -23,6 +23,7 @@ cat <<EOF >> ~/.emacs
 
 (global-auto-complete-mode t)
 
+(setq-default indent-tabs-mode nil)
 
 ;add load path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
